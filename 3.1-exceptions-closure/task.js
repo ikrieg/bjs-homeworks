@@ -26,18 +26,17 @@ class Triangle {
         this.a = a;
         this.b = b;
         this.c = c;
-        this.perimeter = a + b + c;
-        if (this.a + this.b <= this.c || this.a + this.c <= this.b || this.b + this.c <= this. a) {
+        if (a + b <= c || a + c <= b || b + c <= a) {
             throw new Error ('Треугольник с такими сторонами не существует');
         }
     }
 
     getPerimeter() {
-        return this.perimeter;
+        return this.a + this.b + this.c;
     }
 
     getArea() {
-        const semiperimeter = this.perimeter / 2;
+        const semiperimeter = (this.a + this.b + this.c) / 2;
         const area = Math.sqrt(semiperimeter * (semiperimeter - this.a) * (semiperimeter - this.b) * (semiperimeter - this.c));
         return parseFloat(area.toFixed(3));
     }
